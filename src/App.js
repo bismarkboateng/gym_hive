@@ -1,16 +1,16 @@
 import React from "react";
-import { Navbar, Search, Exercise, Footer } from "./components";
+import { Home, ExerciseDetail } from "./pages";
+import { Routes, Route } from "react-router-dom";
+
+
+
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <div>
-        <Search />
-        <Exercise />
-        <Footer />
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" exact element={<Home />} />
+      <Route path="/exercise/:id" element={<ExerciseDetail /> } />
+    </Routes>
   )
 }
 
