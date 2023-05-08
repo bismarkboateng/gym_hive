@@ -1,7 +1,7 @@
 import React from "react";
 import { Home, ExerciseDetail } from "./pages";
 import { Routes, Route } from "react-router-dom";
-
+import "./App.css";
 
 
 
