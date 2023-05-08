@@ -16,3 +16,14 @@
 .explore-btn:hover{
     background-color: gray;
 }
+
+.bodypart-card {
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* .bodypart-card:hover {
+
+} */
