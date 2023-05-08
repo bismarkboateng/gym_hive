@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <Stack
       sx={{background: "linear-gradient(90deg, rgba(27,26,26,0.8715861344537815) 0%, rgba(38,32,38,0.9416141456582633) 17%, rgba(48,46,46,0.9640231092436975) 30%, rgba(41,39,39,0.908000700280112) 44%, rgba(73,65,65,1) 60%, rgba(186,44,44,1) 100%)",
-          paddingTop: "300px"
+          paddingTop: "300px", paddingBottom: "20px"
       }}
       direction="row" alignContent="center" justifyContent="space-around"
 
@@ -28,7 +28,7 @@ const HeroSection = () => {
       </Box>
 
       <Box>
-        <img width={450} height={500} src={Trainer} alt="trainer logo" />
+        <img width={450} height={550} src={Trainer} alt="trainer logo" />
       </Box>
     </Stack>
   )

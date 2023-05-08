@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,12 +10,17 @@ const Navbar = () => {
         fontWeight: "700"
       }}
     >
-      <Box sx={{ border: "2px solid #fff", padding: "10px 20px"}}>
-         FITNESS<br /> CLUB <span style={{fontWeight: "700", color: "red"}}>.</span>
-      </Box>
+      <Link to="/" style={{ textDecoration: "none", color:"#fff"}}>
+        <Box sx={{ border: "2px solid #fff", padding: "10px 20px"}}>
+          FITNESS<br /> CLUB <span style={{fontWeight: "700", color: "red"}}>.</span>
+        </Box>
+      </Link>
+
 
       <Stack direction="row" gap={3}>
-        <Typography color="red" className="link-hover"> Home </Typography>
+        <Link to="/" style={{ textDecoration: "none", color:"#fff"}}>
+           <Typography color="red" className="link-hover"> Home </Typography>
+        </Link>
         <Typography className="link-hover"> About us </Typography>
         <Typography className="link-hover"> Gallery </Typography>
         <Typography className="link-hover"> Blog </Typography>
