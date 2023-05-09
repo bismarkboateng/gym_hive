@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const ExerciseCard = ({ exercise }) => {
   const { bodyPart, equipment, id, gifUrl, name, target } = exercise;
-  console.log(bodyPart, equipment);
+  // console.log(bodyPart, equipment);
   return (
     <Link to={`/exercise/${id}`} style={{ textDecoration: "none" }}>
       <Stack

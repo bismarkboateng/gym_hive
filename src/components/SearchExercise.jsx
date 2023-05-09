@@ -14,32 +14,32 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart}) => {
       const bodyPartsData = await fetchData("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", exerciseDBoptions);
       setBodyParts(bodyPartsData);
     }
+
+    const fetchExerciseData = async () => {
+      const exercisesData = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseDBoptions)
+      setExercises(exercisesData.slice(0, 100));
+    }
     
     fetchBodyParts();
+    fetchExerciseData();
 
   }, []);
 
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseDBoptions)
-      // setExercises(exercisesData);
         const searchExercise = exercisesData.filter((item) => 
           item.bodyPart.toLowerCase().includes(search) || item.equipment.toLowerCase().includes(search)
           || item.name.toLowerCase().includes(search) || item.target.toLowerCase().includes(search)
         )
-
         setExercises(searchExercise);
-      
     }
-
-    
-
     setSearch("");
   }
 
   return (
     <Box
-      sx={{ background: "linear-gradient(90deg, rgba(175,170,170,1) 0%, rgba(191,185,185,1) 26%, rgba(186,181,181,1) 56%, rgba(208,201,201,1) 96%)",
+      sx={{background: "linear-gradient(90deg, rgba(175,170,170,1) 0%, rgba(191,185,185,1) 26%, rgba(186,181,181,1) 56%, rgba(208,201,201,1) 96%)",
           display: "flex", justifyContent: "center", flexDirection: "column",
           alignItems: "center", padding: "50px", paddingBottom: "60px"
         }}

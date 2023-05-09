@@ -5,9 +5,9 @@ import Gym from "../assets/images/gym.png";
 
 const BodyPart = ({ data, bodyPart, setBodyPart }) => {
   
-  if(bodyPart) {
-    console.log(bodyPart);
-  }
+  // if(bodyPart) {
+  //   console.log(bodyPart);
+  // }
   
   return (
     <Box
