@@ -3,8 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import Gym from "../assets/images/gym.png";
 
 
-const BodyPart = ({ bodyPart}) => {
-    console.log(bodyPart)
+const BodyPart = ({ bodyPart }) => {
 
   return (
     <Stack direction="row" gap={4}
