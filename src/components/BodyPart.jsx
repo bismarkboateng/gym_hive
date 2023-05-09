@@ -1,27 +1,48 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import {Box, Button, Stack, Typography } from "@mui/material";
 import Gym from "../assets/images/gym.png";
 
 
-const BodyPart = ({ bodyPart }) => {
-
+const BodyPart = ({ data, bodyPart, setBodyPart }) => {
+  
+  if(bodyPart) {
+    console.log(bodyPart);
+  }
+  
   return (
-    <Stack direction="row" gap={4}
-    justifyContent="center"
-    mt="80px"
+    <Box
+      sx={{ display: "flex"}}
     >
-      { bodyPart.map((part) => (
-        <Box
-            key={part}
-            className="bodypart-card"
+      {
+        data.map((item, idx) => (
+        <Button
+          key={idx}
+          sx={{ 
+              borderTop: bodyPart == item ? "1px solid red" : "",
+              backgroundColor: "#fff", margin: "10px",
+              padding: "60px 80px", borderRadius:"20px",
+              display: "flex", flexDirection: "column",
+              alignItems: "center",
+          }}
+          onClick={() => setBodyPart(item)}
+          className="bodyPart-card"
         >
-            <img src={Gym}  width="80" alt="gym icon" />
-            <Typography ml={1} fontWeight="700" mt="4px" color="gray">
-              { part }
-            </Typography>
-        </Box>
-      ))}
-    </Stack>
+          <Box mb="30px">
+             <img src={Gym} alt="gym icon" className="gym-icon" />
+          </Box>
+
+          <Typography
+            fontWeight={700}
+            variant="h5"
+          >
+              { item }
+          </Typography>
+        </Button>
+
+        ))
+      }
+
+    </Box>
   )
 }
 

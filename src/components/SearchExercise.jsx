@@ -1,27 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import { fetchData, exerciseDBoptions } from "../utils/fetchData";
-import BodyPart from "./BodyPart";
+import HorizontalScroll from "./HorizontalScroll";
 
 
-const SearchExercise = () => {
+const SearchExercise = ({ setExercises, bodyPart, setBodyPart}) => {
   const [search, setSearch] = useState("");
-  const [bodyPart, setBodyPart] = useState([]);
+  const [bodyParts, setBodyParts] = useState([]);
+
 
   useEffect(() => {
     const fetchBodyParts = async () => {
       const bodyPartsData = await fetchData("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", exerciseDBoptions);
-      setBodyPart(bodyPartsData);
+      setBodyParts(bodyPartsData);
     }
     
     fetchBodyParts();
 
   }, []);
 
-  const handleSearch = () => {
-    console.log(search);
+  const handleSearch = async () => {
+    if (search) {
+      const exercisesData = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseDBoptions)
+      // setExercises(exercisesData);
+        const searchExercise = exercisesData.filter((item) => 
+          item.bodyPart.toLowerCase().includes(search) || item.equipment.toLowerCase().includes(search)
+          || item.name.toLowerCase().includes(search) || item.target.toLowerCase().includes(search)
+        )
 
-    setSearch(" ");
+        setExercises(searchExercise);
+      
+    }
+
+    
+
+    setSearch("");
   }
 
   return (
@@ -39,8 +52,9 @@ const SearchExercise = () => {
       <Box sx={{ display: "flex"}}>
         <TextField 
           sx={{width: { xs: "320px", lg: "1000px"} }}
+          value={search}
           placeholder="Search Exercises"
-          onChange={(e)=> setSearch(e.target.value)}
+          onChange={e => setSearch(e.target.value.toLowerCase())}
         />
         <Button variant="contained" color="error"
          sx={{ padding: "0 30px"}}
@@ -48,7 +62,13 @@ const SearchExercise = () => {
         >Search</Button>
       </Box>
 
-      <BodyPart bodyPart={bodyPart} />
+      <Box sx={{
+        marginTop:"100px",
+        width: "100%",
+        overflowX: "hidden"
+      }}>
+        <HorizontalScroll bodyPart={bodyPart} setBodyPart={setBodyPart} data={bodyParts} /> 
+      </Box>
     </Box>
   )
 }

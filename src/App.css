@@ -17,13 +17,70 @@
     background-color: gray;
 }
 
-.bodypart-card {
-    background-color: white;
-    padding: 15px 25px;
-    border-radius: 20px;
-    font-weight: 700;
+.right-arrow,
+.left-arrow {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FF2625;
+  font-size: 25px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -20px;
+  right: 80px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
 }
 
-/* .bodypart-card:hover {
 
-} */
+.right-arrow {
+  right: 140px;
+}
+
+.left-arrow {
+  top: 1500px;
+}
+
+.right-arrow:hover,
+.left-arrow:hover {
+  transform: scale(1.3, 1.3);
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gym-icon {
+  width: 50px;
+}
+
+.bodyPart-card {
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.card-btn {
+  background: pink;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 20px;
+
+  font-weight: bold;
+  color: #fff;
+}
+
+.card-btn-left {
+  margin-left: 10px;
+  padding: 10px 10px;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  background-color: rgb(245, 172, 38);
+  font-weight: bold;
+}
