@@ -3,8 +3,25 @@ import { Navbar } from "../components";
 import { useParams } from "react-router-dom";
 import { Stack, Box, Typography } from "@mui/material";
 import { fetchData, exerciseDBoptions } from "../utils/fetchData";
+import { Link } from "react-router-dom";
+import Upper from "../assets/images/body.png";
+import Target from "../assets/images/target.png";
+import Equip from "../assets/images/equipment.png";
 
-
+const Links = [
+  {
+    iconName: Upper,
+    name: "Upper Legs"
+  },
+  {
+    iconName: Target,
+    name: "Quads"
+  },
+  {
+    iconName: Equip,
+    name: "Body Weight"
+  },
+]
 
 
 const ExerciseDetail = () => {
@@ -27,28 +44,40 @@ const ExerciseDetail = () => {
   return (
     <Box>
       <Navbar />
-      <Stack direction="row" justifyContent="space-around" alignItems="flex-start" pt={20} pb={20}
-        sx={{background: "linear-gradient(90deg, rgba(175,170,170,1) 0%, rgba(191,185,185,1) 26%, rgba(186,181,181,1) 56%, rgba(208,201,201,1) 96%)",
-          }}
+
+      <Stack direction="row" alignItems="flex-start" pt={20} pb={20}
+        sx={{ backgroundColor: "#f2f3ed", display: "flex", justifyContent: "space-evenly"}}
       >
         <Box
-          sx={{ background: "#fff", borderRadius: "20px"}}
+          sx={{ background: "#fff", borderRadius: "20px", borderRadius: "20px"}}
         >
-          <img src={gifUrl} alt="exercise image" width="700px" height="800px" />
+          <img src={gifUrl} alt="exercise image" width="500px" height="600px" style={{ borderRadius: "20px"}} />
         </Box>
 
-        <Box
-          sx={{ mt: "100px", border: "1px solid red"}}
-        >
-          <Typography variant="h4" mb={3} fontSize={50}>{ name }</Typography> <br />
-          <Typography variant="subtitle1">
-          Exercises keep you strong. { name } is one of <br />
-          the best exercises to target your {target}. It will help you improve your mood and gain energy.
+        <Box sx={{ background: "#fff", borderRadius: "10px", padding: "15px"}}>
+          <Typography variant="h4" mb={3} fontSize={50} sx={{ fontWeight: 600 }}>{ name }</Typography> <br />
+          <Typography variant="subtitle1" sx={{ fontSize: "18px", marginBottom: "30px"}}>
+            Exercises keep you strong. { name } is one of <br />
+            the best exercises to target your {target}.<br />
+            It will help you improve your mood and gain energy.
           </Typography>
+          {
+            Links.map((link) => (
+              <Box key={link.iconName} sx={{ display: "flex",
+                alignItems: "center",
+                marginBottom: "10px",
+                padding: "7px"
 
+              }}
+              >
+                <img src={link.iconName} alt="icon name"
+                />
+                <p style={{ fontSize: "18px", marginLeft: "20px"}}>{link.name}</p>
+              </Box>
+            ))
+          }
         </Box>
       </Stack>
-
     </Box>
   )
 }
