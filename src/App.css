@@ -30,19 +30,20 @@
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
-  bottom: -20px;
-  right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
 }
 
 
 .right-arrow {
+  top: 0;
   right: 140px;
 }
 
 .left-arrow {
-  top: 1500px;
+  left: 4px;
+  z-index: 2;
+  top: 0;
 }
 
 .right-arrow:hover,

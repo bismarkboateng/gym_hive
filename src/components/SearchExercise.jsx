@@ -41,7 +41,7 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart}) => {
     <Box
       sx={{backgroundColor: "#f2f3ed",
           display: "flex", justifyContent: "center", flexDirection: "column",
-          alignItems: "center", padding: "50px", paddingBottom: "60px"
+          alignItems: "center", padding: "50px", paddingBottom: "60px",
         }}
     
     >
@@ -65,7 +65,8 @@ const SearchExercise = ({ setExercises, bodyPart, setBodyPart}) => {
       <Box sx={{
         marginTop:"100px",
         width: "100%",
-        overflowX: "hidden"
+        overflowX: "hidden",
+        position: "relative"
       }}>
         <HorizontalScroll bodyPart={bodyPart} setBodyPart={setBodyPart} data={bodyParts} /> 
       </Box>
