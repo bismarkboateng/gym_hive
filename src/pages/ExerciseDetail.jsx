@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import Upper from "../assets/images/body.png";
 import Target from "../assets/images/target.png";
 import Equip from "../assets/images/equipment.png";
+import ExerciseCard from "../components/ExerciseCard";
+
+
 
 const Links = [
   {
@@ -23,7 +26,7 @@ const Links = [
 ]
 
 
-const ExerciseDetail = () => {
+const ExerciseDetail = ({ exercises }) => {
   const [exerciseDetail, setExerciseDetail] = useState([]);
   const { bodyPart, equipment, gifUrl, name, target} = exerciseDetail;
   const { id } = useParams();
@@ -36,6 +39,7 @@ const ExerciseDetail = () => {
     }
 
     fetchExerciseDetail();
+
 
   }, [id]);
 
@@ -75,6 +79,26 @@ const ExerciseDetail = () => {
           }
         </Box>
       </Stack>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          padding: "50px",
+          borderRadius: "10px"
+        }}
+      >
+        <Box sx={{ display: "blocK"}}>
+          <Typography variant="h5">
+            Similar <span style={{ color: "tomato"}}>exercises</span>
+          </Typography> <br></br>
+        </Box>
+
+      {
+        exercises.slice(0, 4).map((exercise) => (
+          <ExerciseCard key={exercise.id} exercise={exercise} />
+        ))
+      }
+      </Box>
     </Box>
   )
 }

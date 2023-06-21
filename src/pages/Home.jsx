@@ -4,9 +4,13 @@ import { HeroSection, SearchExercise, Exercise, Footer } from "../components";
 
 
 
-const Home = () => {
-  const [exercises, setExercises] = useState([]);
-  const [bodyPart, setBodyPart] = useState("");
+const Home = ({ HomeObject }) => {
+  const {
+    exercises,
+    setExercises,
+    bodyPart,
+    setBodyPart
+  } = HomeObject;
 
 
   return (
