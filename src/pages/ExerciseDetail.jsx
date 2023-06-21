@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Navbar } from "../components";
 import { useParams } from "react-router-dom";
 import { Stack, Box, Typography } from "@mui/material";
 import { fetchData, exerciseDBoptions } from "../utils/fetchData";
@@ -43,8 +42,6 @@ const ExerciseDetail = () => {
 
   return (
     <Box>
-      <Navbar />
-
       <Stack direction="row" alignItems="flex-start" pt={20} pb={20}
         sx={{ backgroundColor: "#f2f3ed", display: "flex", justifyContent: "space-evenly"}}
       >

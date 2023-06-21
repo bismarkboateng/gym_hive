@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
-import { Navbar, HeroSection, SearchExercise, Exercise, Footer } from "../components";
+import { HeroSection, SearchExercise, Exercise, Footer } from "../components";
 
 
 
@@ -11,7 +11,6 @@ const Home = () => {
 
   return (
     <Box>
-      <Navbar />
       <HeroSection />
       <SearchExercise exercises={exercises} setExercises={setExercises}
           setBodyPart={setBodyPart}
